@@ -1,3 +1,5 @@
+import 'package:flutter_map/util/types_helper.dart';
+
 class Quake {
   String type;
   Metadata metadata;
@@ -161,29 +163,29 @@ class Properties {
         this.title});
 
   Properties.fromJson(Map<String, dynamic> json) {
-    mag = json['mag'];
+    mag = TypesHelper.toDouble(json['mag']);
     place = json['place'];
-    time = json['time'];
-    updated = json['updated'];
+    time = TypesHelper.toInt(json['time']);
+    updated = TypesHelper.toInt(json['updated']);
     tz = json['tz'];
     url = json['url'];
     detail = json['detail'];
-    felt = json['felt'];
-    cdi = json['cdi'];
-    mmi = json['mmi'];
+    felt = TypesHelper.toInt(json['felt']);
+    cdi = TypesHelper.toDouble(json['cdi']);
+    mmi = TypesHelper.toDouble(json['mmi']);
     alert = json['alert'];
     status = json['status'];
-    tsunami = json['tsunami'];
-    sig = json['sig'];
+    tsunami = TypesHelper.toInt(json['tsunami']);
+    sig = TypesHelper.toInt(json['sig']);
     net = json['net'];
     code = json['code'];
     ids = json['ids'];
     sources = json['sources'];
     types = json['types'];
-    nst = json['nst'];
-    dmin = json['dmin'];
-    rms = json['rms'];
-    gap = json['gap'];
+    nst = TypesHelper.toInt(json['nst']);
+    dmin = TypesHelper.toDouble(json['dmin']);
+    rms = TypesHelper.toDouble(json['rms']);
+    gap = TypesHelper.toDouble(json['gap']);
     magType = json['magType'];
     type = json['type'];
     title = json['title'];
