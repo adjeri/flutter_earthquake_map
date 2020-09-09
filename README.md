@@ -2,7 +2,8 @@
 
 This is a flutter application that displays all the recent earthquakes around the world on a Google Map. 
 On tap of a marker, it displays the magnitude of the earthquakes and where it happened.
-Earthquake data come from https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson API 
+Earthquake data come from this [API](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson) 
+Please add your Google Map API key following instructions [here](https://pub.dev/packages/google_maps_flutter)
 
 ## Useful
 
