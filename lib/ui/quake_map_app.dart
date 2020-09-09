@@ -15,6 +15,7 @@ class _QuakesAppState extends State<QuakesApp> {
   Future<Quake> _quakesData;
   Completer<GoogleMapController> _controller = Completer();
   List<Marker> _markerList = <Marker>[];
+  double _zoomVal = 5.0;
 
   @override
   void initState() {
@@ -34,6 +35,8 @@ class _QuakesAppState extends State<QuakesApp> {
       body: Stack(
         children: [
           _buildGoogleMap(context),
+          _zoomMinus(),
+          _zoomPlus(),
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
@@ -41,6 +44,38 @@ class _QuakesAppState extends State<QuakesApp> {
             findQuakes();
           },
           label: Text("Find quakes")),
+    );
+  }
+
+  Widget _zoomPlus(){
+    return Padding(
+      padding: const EdgeInsets.only(top: 38.0),
+      child: Align(
+        alignment: Alignment.topRight,
+        child: IconButton(
+          icon: FaIcon(FontAwesomeIcons.searchPlus,color: Colors.black87,),
+          onPressed: () {
+            _zoomVal++;
+            _plus(_zoomVal);
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget _zoomMinus(){
+    return Padding(
+      padding: const EdgeInsets.only(top: 38.0),
+      child: Align(
+        alignment: Alignment.topLeft,
+        child: IconButton(
+          icon: FaIcon(FontAwesomeIcons.searchMinus,color: Colors.black87,),
+          onPressed: () {
+            _zoomVal--;
+            _minus(_zoomVal);
+          },
+        ),
+      ),
     );
   }
 
@@ -88,5 +123,14 @@ class _QuakesAppState extends State<QuakesApp> {
         })
       });
     });
+  }
+
+  Future<void> _minus(double zoomVal) async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.17864,-74.484),zoom: zoomVal)));
+  }
+  Future<void> _plus(double zoomVal) async {
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(target: LatLng(40.17864,-74.484),zoom: zoomVal)));
   }
 }
