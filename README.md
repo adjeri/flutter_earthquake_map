@@ -1,6 +1,8 @@
-# flutter_map
+# Flutter earthquakes map
 
-A new Flutter project.
+This is a flutter application that displays all the recent earthquakes around the world on a Google Map. 
+On tap of a marker, it displays the magnitude of the earthquakes and where it happened.
+ 
 
 ## Getting Started
 
