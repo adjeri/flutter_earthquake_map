@@ -60,6 +60,7 @@ class _QuakesAppState extends State<QuakesApp> {
         },
         initialCameraPosition:
         CameraPosition(target: LatLng(36.1083331, -117.8608333), zoom: 3),
+        markers: Set<Marker>.of(_markerList),
       ),
     );
   }
@@ -78,7 +79,7 @@ class _QuakesAppState extends State<QuakesApp> {
         quakes.features.forEach((quake) =>
         {
           _markerList.add(Marker(markerId: MarkerId(quake.id),
-              infoWindow: InfoWindow(title: quake.properties.mag.toString()),
+              infoWindow: InfoWindow(title: quake.properties.mag.toString(),snippet: quake.properties.title),
               icon: BitmapDescriptor.defaultMarkerWithHue(
                   BitmapDescriptor.hueBlue),
               position: LatLng(quake.geometry.coordinates[1].toDouble(),
