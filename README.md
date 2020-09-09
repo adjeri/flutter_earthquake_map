@@ -4,9 +4,7 @@ This is a flutter application that displays all the recent earthquakes around th
 On tap of a marker, it displays the magnitude of the earthquakes and where it happened.
 Earthquake data come from https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson API 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
+## Useful
 
 A few resources to get you started if this is your first Flutter project:
 
